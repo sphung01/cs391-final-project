@@ -8,16 +8,28 @@ import Link from "next/link";
 /* 
     This function returns a Header component for layout.tsx.
     The header will allow you to navigate to:
-        - About page
-        - Home screen if the title was clicked on
+        - About page if the About tab was clicked
+        - Home screen if the Home tab was clicked
     By using the Link component, we can easily render pages.
 */
 export default function Header() {
-  return (
-    <header className="flex justify-between items-center h-20 bg-black">
-        <Link href={`/`}>
-            <h2 className="text-4xl text-white font-semibold p-4">URL Shortener Website</h2>
-        </Link>
-    </header>
-  );
+    // Styling Attributes to help keep the code clean and good for resuability
+    const linkStyling = "p-1 m-2 text-xl hover:underline text-white";
+    const headerStyling = "flex justify-between items-center h-20 bg-black";
+    const titleStyling = "text-4xl font-semibold p-4 text-white";
+    const navStyling = "p-2 m-4";
+
+    return (
+        <header className={headerStyling}>
+            <h2 className={titleStyling}>PlaylistGenerator</h2>
+            <nav className={navStyling}>
+                <Link href="/" className={linkStyling}>
+                Home
+                </Link>
+                <Link href="/about" className={linkStyling}>
+                About
+                </Link>
+            </nav>
+        </header>
+        );
 }
