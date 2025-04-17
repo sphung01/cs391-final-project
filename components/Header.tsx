@@ -19,6 +19,7 @@ export default function Header() {
     const titleStyling = "text-4xl font-semibold p-4 text-white";
     const navStyling = "p-2 m-4";
 
+    // Return the header with title, home link, and about link
     return (
         <header className={headerStyling}>
             <h2 className={titleStyling}>PlaylistGenerator</h2>
