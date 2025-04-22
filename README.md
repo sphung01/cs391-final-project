@@ -3,8 +3,8 @@ This is a [Next.js](https://nextjs.org) PlaylistGenerator project
 ## Components done by individuals
 
 Steven: 
-    - Footer
-    - Header
+Footer.tsx
+Header.tsx
 
 First, run the development server:
 
