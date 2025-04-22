@@ -1,5 +1,5 @@
 //done by Julian Lim Jun Ren
-export default function InputBox() {
+export default function InputField() {
     return (
         <>
             <div>

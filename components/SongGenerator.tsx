@@ -5,14 +5,18 @@
     In which case, should redirect the user to a different page depending on the genre.
 */
 
+// Steven Phung: I have formatted where this form wraps the button and input field. Rest is up to you.
+
 import SubmitButton from "./SubmitButton";
-import InputBox from "@/components/InputBox";
+import InputField from "@/components/InputField";
 "use client"
 
 export default function SongGenerator() {
     return(
-        <div className="bg-green-200">
+        <form className="bg-green-200">
             This is where the SongGenerator is.
-        </div>
+            <InputField />
+            <SubmitButton />
+        </form>
     )
 }
