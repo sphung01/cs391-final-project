@@ -6,14 +6,13 @@
 */
 
 // Steven Phung: I have formatted where this form wraps the button and input field. Rest is up to you.
-
+"use client"
 import SubmitButton from "./SubmitButton";
 import InputField from "@/components/InputField";
-"use client"
 
 export default function SongGenerator() {
     return(
-        <form className="bg-green-200">
+        <form className="bg-white text-black">
             This is where the SongGenerator is.
             <InputField />
             <SubmitButton />
