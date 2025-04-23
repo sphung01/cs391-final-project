@@ -14,6 +14,7 @@ Julian:
 - Created the UserInput.tsx file 4/23/2025
 
 Abdulrhman:
+- Playlist.tsx file 4/23/2025
 
 Welli:
 
