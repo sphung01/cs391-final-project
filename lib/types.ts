@@ -9,3 +9,7 @@ export type Song = {
     genre: string;
     style: string[];
 } 
+
+interface SongProps {
+    song: Song;
+}
