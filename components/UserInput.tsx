@@ -16,13 +16,12 @@ import { Song } from "@/lib/types";
 
 
 
-export default function UserInput() {
+export default function UserInput(props: {songs: Song[], setSongs: (songs: Song[]) => void}) {
     /*styling*/
     const inputFormStyling = "flex flex-col justify-self-center items-center justify-center w-[50vw] h-[30vh] bg-green-500 rounded-3xl drop-shadow-lg]";
     const titleStyling = "text-[calc(3px+1.5vw)] font-semibold text-white my-[1vh]";
 
     const [genre, setGenre] = useState<string>("");
-    const [songs, setSongs] = useState<Song[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -30,14 +29,14 @@ export default function UserInput() {
         e.preventDefault();
         setError(null);
         setLoading(true);
-        setSongs([]);
+        props.setSongs([]);
         getSongs(genre)
             .then((data)=>{
                     console.log("Data fetched Successfully");
                     console.log(data);
                     if (data) {
-                        setSongs(data.results);
-                        console.log("Songs", songs)
+                        props.setSongs(data.results);
+                        console.log("Songs", props.songs)
                     } else {
                         setError("No songs found");
                     }
@@ -63,7 +62,7 @@ export default function UserInput() {
                 <h1>Testing results:</h1>
                 {error && <p className="text-red-500">{error}</p>}
                 <div>
-                    {songs.map((song) => (
+                    {props.songs.map((song) => (
                         <div key={song.id} className="my-2">
                             <img src={song.cover_image} alt={song.title} className="w-16 h-16" />
                             <p>{song.title}</p>
