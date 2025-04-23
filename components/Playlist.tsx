@@ -1,14 +1,14 @@
 //By Abdulrhman Alharbi
 
-import Song from "./Song";
-import { SongProps } from "@/lib/types";
+import SongComponent from "./SongComponent";
+import { Song } from "@/lib/types";
 
-export default function Playlist({songs}: {songs: SongProps[]}) {
+export default function Playlist({songs}: {songs: Song[]}) {
     return (
         <div>
             {
                 songs.map((song, index) => (
-                    <Song  key={index} {...song} />
+                    <SongComponent key={index} {...song} />
                 ))
             }
         </div>
