@@ -17,7 +17,7 @@ import { Song } from "@/lib/types";
 
 export default function UserInput() {
     /*styling*/
-    const inputFormStyling = "flex flex-col items-center justify-center w-[50vw] h-[30vh] bg-green-500 rounded-3xl drop-shadow-lg]";
+    const inputFormStyling = "flex flex-col justify-self-center items-center justify-center w-[50vw] h-[30vh] bg-green-500 rounded-3xl drop-shadow-lg]";
     const titleStyling = "text-[calc(3px+1.5vw)] font-semibold text-white my-[1vh]";
     const inputStyling = "w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2"
 
@@ -28,7 +28,9 @@ export default function UserInput() {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setError(null);
         setLoading(false);
+        setSongs([]);
         getSongs(genre)
             .then((data)=>{
                     console.log("Data fetched Successfully");
@@ -37,7 +39,7 @@ export default function UserInput() {
                         setSongs(data.results);
                         console.log("Songs", songs)
                     } else {
-                        setError("No songs found for this genre");
+                        setError("No songs found");
                     }
                     setLoading(false);
                 })
@@ -52,8 +54,8 @@ export default function UserInput() {
             <form onSubmit={handleSubmit} className={inputFormStyling}>
                 <h1 className={titleStyling}>Playlist Generator</h1>
                 <div className="flex flex-col my-[1vh] w-[50%]">
-                    <label htmlFor="genre" className="">Enter a genre:</label>
-                    <input
+                    <label htmlFor="genre" className="">Pick a genre:</label>
+                    {/* <input
                         id="genre"
                         type="text"
                         placeholder="e.g. Pop, Rock, Jazz"
@@ -61,11 +63,35 @@ export default function UserInput() {
                         onChange={(e) => setGenre(e.target.value)}
                         className={inputStyling}
                         required
-                    />
+                    /> */}
+                    <select
+                        id="genre"
+                        value={genre}
+                        onChange={(e) => setGenre(e.target.value)}
+                        className={inputStyling}
+                        required
+                    >
+                        <option value="">-- Select a genre --</option>
+                        <option value="Blues">Blues</option>
+                        <option value="Brass & Military">Brass & Military</option>
+                        <option value="Classical">Classical</option>
+                        <option value="Electronic">Electronic</option>
+                        <option value="Folk, World, & Country">Folk, World, & Country</option>
+                        <option value="Funk / Soul">Funk / Soul</option>
+                        <option value="Hip-Hop">Hip-Hop</option>
+                        <option value="Jazz">Jazz</option>
+                        <option value="Latin">Latin</option>
+                        <option value="Non-Music">Non-Music</option>
+                        <option value="Pop">Pop</option>
+                        <option value="Reggae">Reggae</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Stage & Screen">Stage & Screen</option>
+                    </select>
                     <SubmitButton loading={loading} />
                 </div>
             </form>
             <div>
+                <h1>Testing results:</h1>
                 {error && <p className="text-red-500">{error}</p>}
                 {songs.length > 0 && (
                     <div>

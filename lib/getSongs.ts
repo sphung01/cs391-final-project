@@ -3,6 +3,7 @@
     Server is passed the genre from the client, fetches the songs from the API, and returns the songs to the client.
 */
 "use server"
+import { Song } from "./types";
 
 if (!process.env.GENIUS_API_KEY || !process.env.DISCOGS_API_KEY) {
     throw new Error('Missing api key environment variable');
@@ -20,30 +21,32 @@ function generateRandomQuery() {
     return result;
 }
 
+function pickRandomSongs(results: Song[]) {
+    const count: number = 10;
+    const selectedSongs: Song[] = [];
+    if (results.length < count) {
+        return results;
+    }
+    while (selectedSongs.length < count) {
+        const randomIndex = Math.floor(Math.random() * results.length);
+        if (!selectedSongs.includes(results[randomIndex])) { //javascript array method to check if the song is already in the selectedSongs array
+            selectedSongs.push(results[randomIndex]); //javascript array method to add the song to the selectedSongs array
+        }
+    }
+    return selectedSongs;
+}
+
 export async function getSongs(genre: string){
     const randomiser = generateRandomQuery();
-    try {
-        const res = await fetch(`${DISCOGS_API_URL}/database/search?q=${randomiser}&genre=${genre}&token=${DISCOGS_API_KEY}`);
-        const data = await res.json();
-        if (!res.ok) {
-            throw new Error(`Error: ${res.status} ${res.statusText}`);
-        } else if (data.results.length === 0) {
-            throw new Error('No songs found for this genre');
-        } else {
-            data.results = data.results.map((song: any) => ({
-                id: song.id,
-                title: song.title,
-                cover_image: song.cover_image,
-                year: song.year,
-                country: song.country,
-                genre: song.genre[0] || 'Unknown',
-            }));
-        }
-
+    const res = await fetch(`${DISCOGS_API_URL}/database/search?q=&genre=${genre}&token=${DISCOGS_API_KEY}`);
+    const data = await res.json();
+    if (!res.ok) {
+        throw new Error(`Error: ${res.status} ${res.statusText}`);
+    } else if (data.results.length === 0) {
+        throw new Error('No songs found for this genre');
+    } else {
+        data.results = pickRandomSongs(data.results);
         console.log(data);
         return data;
-    } catch (error) {
-        console.error(error);
-        return null;
     }
 }
