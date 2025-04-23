@@ -10,6 +10,7 @@
 import {getSongs} from "@/lib/getSongs"
 import {useState} from "react"
 import SubmitButton from "./SubmitButton";
+import DropdownList from "./DropdownList";
 import { Song } from "@/lib/types";
 
 
@@ -19,7 +20,6 @@ export default function UserInput() {
     /*styling*/
     const inputFormStyling = "flex flex-col justify-self-center items-center justify-center w-[50vw] h-[30vh] bg-green-500 rounded-3xl drop-shadow-lg]";
     const titleStyling = "text-[calc(3px+1.5vw)] font-semibold text-white my-[1vh]";
-    const inputStyling = "w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2"
 
     const [genre, setGenre] = useState<string>("");
     const [songs, setSongs] = useState<Song[]>([]);
@@ -29,7 +29,7 @@ export default function UserInput() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError(null);
-        setLoading(false);
+        setLoading(true);
         setSongs([]);
         getSongs(genre)
             .then((data)=>{
@@ -55,56 +55,21 @@ export default function UserInput() {
                 <h1 className={titleStyling}>Playlist Generator</h1>
                 <div className="flex flex-col my-[1vh] w-[50%]">
                     <label htmlFor="genre" className="">Pick a genre:</label>
-                    {/* <input
-                        id="genre"
-                        type="text"
-                        placeholder="e.g. Pop, Rock, Jazz"
-                        value={genre}
-                        onChange={(e) => setGenre(e.target.value)}
-                        className={inputStyling}
-                        required
-                    /> */}
-                    <select
-                        id="genre"
-                        value={genre}
-                        onChange={(e) => setGenre(e.target.value)}
-                        className={inputStyling}
-                        required
-                    >
-                        <option value="">-- Select a genre --</option>
-                        <option value="Blues">Blues</option>
-                        <option value="Brass & Military">Brass & Military</option>
-                        <option value="Classical">Classical</option>
-                        <option value="Electronic">Electronic</option>
-                        <option value="Folk, World, & Country">Folk, World, & Country</option>
-                        <option value="Funk / Soul">Funk / Soul</option>
-                        <option value="Hip-Hop">Hip-Hop</option>
-                        <option value="Jazz">Jazz</option>
-                        <option value="Latin">Latin</option>
-                        <option value="Non-Music">Non-Music</option>
-                        <option value="Pop">Pop</option>
-                        <option value="Reggae">Reggae</option>
-                        <option value="Rock">Rock</option>
-                        <option value="Stage & Screen">Stage & Screen</option>
-                    </select>
+                    <DropdownList genre={genre} setGenre={setGenre} />
                     <SubmitButton loading={loading} />
                 </div>
             </form>
             <div>
                 <h1>Testing results:</h1>
                 {error && <p className="text-red-500">{error}</p>}
-                {songs.length > 0 && (
-                    <div>
-                        <ul>
-                            {songs.map((song) => (
-                                <li key={song.id} className="my-2">
-                                    <img src={song.cover_image} alt={song.title} className="w-16 h-16" />
-                                    <p>{song.title} - {song.year}</p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
+                <div>
+                    {songs.map((song) => (
+                        <div key={song.id} className="my-2">
+                            <img src={song.cover_image} alt={song.title} className="w-16 h-16" />
+                            <p>{song.title}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
     )

@@ -11,6 +11,7 @@ if (!process.env.GENIUS_API_KEY || !process.env.DISCOGS_API_KEY) {
 const DISCOGS_API_KEY: string = process.env.DISCOGS_API_KEY;
 const DISCOGS_API_URL: string = 'https://api.discogs.com';
 
+/*tried to randomise query but the results are inconsistent*/
 function generateRandomQuery() {
     const characters = 'abcdefghijklmnopqrstuvwxyz';
     const length = Math.floor(Math.random() * 3) + 1; //Math.floor rounds the random number down to the nearest integer, Math.random * 6 generates a random number between 0 and 5. +1 to make it between 1 and 6
@@ -21,6 +22,7 @@ function generateRandomQuery() {
     return result;
 }
 
+/*constructing a randomised selection of songs from the full fetched array of songs produces better results than query randomising*/
 function pickRandomSongs(results: Song[]) {
     const count: number = 10;
     const selectedSongs: Song[] = [];
@@ -37,7 +39,6 @@ function pickRandomSongs(results: Song[]) {
 }
 
 export async function getSongs(genre: string){
-    const randomiser = generateRandomQuery();
     const res = await fetch(`${DISCOGS_API_URL}/database/search?q=&genre=${genre}&token=${DISCOGS_API_KEY}`);
     const data = await res.json();
     if (!res.ok) {
