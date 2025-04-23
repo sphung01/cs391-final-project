@@ -9,6 +9,7 @@
 "use client"
 import getSongs from "@/lib/getSongs"
 import {useState} from "react"
+import SubmitButton from "./SubmitButton";
 
 
 
@@ -18,7 +19,6 @@ export default function UserInput() {
 
     /*styling*/
     const inputFormStyling = "flex flex-col items-center justify-center w-[50vw] h-[30vh] bg-green-500 rounded-3xl drop-shadow-lg]";
-    const generateButtonStyling = "w-full my-[1vh] bg-green-600 text-white font-bold py-[1vh] px-[2vw] rounded-lg shadow-lg active:bg-green-900 hover:bg-green-800 transition";
     const titleStyling = "text-[calc(3px+1.5vw)] font-semibold text-white my-[1vh]";
     const inputStyling = "w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2"
 
@@ -42,7 +42,7 @@ export default function UserInput() {
                         onChange={(e) => setGenre(e.target.value)}
                         className={inputStyling}
                     />
-                    <button type="submit" className={generateButtonStyling}>Generate</button>
+                    <SubmitButton />
                 </div>
             </form>
         </div>
