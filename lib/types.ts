@@ -7,4 +7,5 @@ export type Song = {
     year: string;
     country: string;
     genre: string;
+    style: string[];
 } 
