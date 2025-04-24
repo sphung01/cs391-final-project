@@ -1,3 +1,5 @@
+// Implemented by Steven Phung
+
 import { SongInfoProps } from "@/lib/types"
 export default function DetailedSongDisplay({song}: SongInfoProps) {
     return(
