@@ -15,7 +15,7 @@ export default function PlaylistPage() {
     const genre = params.genre as string;
 
     useEffect(() => {
-        getSongs(genre)
+        getSongs(decodeURIComponent(genre))
             .then((data)=>{
                     if (data) {
                         setSongs(data.results);
