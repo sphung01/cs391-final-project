@@ -1,3 +1,5 @@
+//By Abdulrhman Alharbi
+
 import {SongProps} from "@/lib/types";
 import Link from "next/link";
 
