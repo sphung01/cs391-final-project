@@ -1,3 +1,4 @@
+//worked on by Abdulrhman Alharbi and Julian Lim Jun Ren
 "use client";
 import Playlist from "@/components/Playlist";
 import {getSongs} from "@/lib/getSongs"
@@ -6,7 +7,7 @@ import { useState, useEffect } from "react";
 import { Song } from "@/lib/types";
 
 export default function PlaylistPage() {
-    const mainStyling = "min-h-screen w-full flex flex-col items-center pt-40";
+    const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
     const params = useParams();
     
     const [songs, setSongs] = useState<Song[]>([]);
