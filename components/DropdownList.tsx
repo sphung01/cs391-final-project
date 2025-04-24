@@ -19,6 +19,7 @@ const genres = [
 
 export default function DropdownList(props: { genre: string, setGenre: (genre: string) => void }) {
     const dropdownStyling = "w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2"
+    const optionStyling = "text-black"
     return (
         <>
             <select
@@ -28,9 +29,9 @@ export default function DropdownList(props: { genre: string, setGenre: (genre: s
                 className={dropdownStyling}
                 required
             >
-                <option value="">-- Select a genre --</option>
+                <option value="" className={optionStyling}>-- Select a genre --</option>
                 {genres.map((genre) => (
-                    <option key={genre} value={genre}>{genre}</option>
+                    <option key={genre} value={genre} className={optionStyling}>{genre}</option>
                 ))}
             </select>
         </>

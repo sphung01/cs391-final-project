@@ -12,11 +12,12 @@ import {useState} from "react"
 import SubmitButton from "./SubmitButton";
 import DropdownList from "./DropdownList";
 import { Song } from "@/lib/types";
+import { useRouter } from "next/router";
 
 
 
 
-export default function UserInput(props: {songs: Song[], setSongs: (songs: Song[]) => void}) {
+export default function UserInput() {
     /*styling*/
     const inputFormStyling = "flex flex-col justify-self-center items-center justify-center w-[50vw] h-[30vh] bg-green-500 rounded-3xl drop-shadow-lg]";
     const titleStyling = "text-[calc(3px+1.5vw)] font-semibold text-white my-[1vh]";
@@ -24,29 +25,37 @@ export default function UserInput(props: {songs: Song[], setSongs: (songs: Song[
     const [genre, setGenre] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    // const [songs, setSongs] = useState<Song[]>([]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError(null);
+        setError(null); // clear previous error
         setLoading(true);
-        props.setSongs([]);
-        getSongs(genre)
-            .then((data)=>{
-                    console.log("Data fetched Successfully");
-                    console.log(data);
-                    if (data) {
-                        props.setSongs(data.results);
-                        console.log("Songs", props.songs)
-                    } else {
-                        setError("No songs found");
-                    }
-                    setLoading(false);
-                })
-            .catch((e: Error)=> {
-                console.log("There was an error fetching data", e)
-                setError(e.message);
-                setLoading(false); // Steven: Fixed loading error here
-            });
+        if (!genre) {
+            setError("Please select a genre");
+            return;
+        }
+
+        const router = useRouter();
+        // redirect to playlist page with the selected genre
+        router.push(`/playlist/${genre}`);
+        setLoading(false);
+        // clear previous error, loading state, and songs
+
+        // // calling async function to fetch songs, with error handling to inform user of issues to avoid redirecting to an empty page
+        // getSongs(genre)
+        //     .then((data)=>{
+        //             if (data) {
+        //                 setSongs(data.results);
+        //             } else {
+        //                 setError("No songs found");
+        //             }
+        //             setLoading(false);
+        //         })
+        //     .catch((e: Error)=> {
+        //         setError(e.message);
+        //         setLoading(false); // Steven: Fixed loading error here
+        //     });
     };
     
     return(
@@ -58,20 +67,19 @@ export default function UserInput(props: {songs: Song[], setSongs: (songs: Song[
                     <DropdownList genre={genre} setGenre={setGenre} />
                     <SubmitButton loading={loading} />
                 </div>
-            </form>
-            <div>
-                {/* Steven: Added some styling so that you have an idea for the playlist.tsx */}
-                <h1 className="justify-self-center items-center justify-center">Testing results:</h1>
                 {error && <p className="text-red-500">{error}</p>}
+            </form>
+            {/* <div>
+                 <h1 className="justify-self-center items-center justify-center">Testing results:</h1>
                 <div className="w-[50%] p-4 justify-self-center items-center justify-center">
-                    {props.songs.map((song) => (
+                    {songs.map((song) => (
                         <div key={song.id} className="my-2 bg-gray-500 p-4 rounded-2xl">
                             <img src={song.cover_image} alt={song.title} className="w-16 h-16" />
                             <p>{song.title}</p>
                         </div>
                     ))}
-                </div>
-            </div>
+                </div> 
+            </div> */}
         </div>
     )
 }
