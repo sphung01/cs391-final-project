@@ -12,11 +12,15 @@ Steven:
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
+- Managed to get the API to operate 4/23/2025
+- Modified UI for UserInput.tsx 4/23/2025
+- Created the DropdownList.tsx 4/23/2025
 
 Abdulrhman:
 - Playlist.tsx file 4/23/2025
 
 Welli:
+- SongComponent.tsx (Incomplete)
 
 
 ## Components that should be filled out. You can remove once it is done.
