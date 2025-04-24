@@ -10,6 +10,8 @@ Steven:
 - Formatted the components in their right place 4/22/2025
 - Move the button to its own component 4/23/2025
 - Completed the "About" page 4/23/2025
+- Implemented getSongById.ts 4/24/2025
+- Attempted to implement page in song/[id] 4/24/2025
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
