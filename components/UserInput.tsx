@@ -12,7 +12,7 @@ import {useState} from "react"
 import SubmitButton from "./SubmitButton";
 import DropdownList from "./DropdownList";
 import { Song } from "@/lib/types";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 
 
@@ -26,6 +26,7 @@ export default function UserInput() {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     // const [songs, setSongs] = useState<Song[]>([]);
+    const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,7 +37,7 @@ export default function UserInput() {
             return;
         }
 
-        const router = useRouter();
+        
         // redirect to playlist page with the selected genre
         router.push(`/playlist/${genre}`);
         setLoading(false);
