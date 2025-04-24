@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) PlaylistGenerator project
 
 ## History based on what we did.
 
-This is where we write out what we did.
+This is where we write out what we did. The date is the time work was recorded.
 
 Steven: 
 - Completed out Footer.tsx 4/22/2025
@@ -17,9 +17,13 @@ Julian:
 - Modified UI for UserInput.tsx 4/23/2025
 - Created the DropdownList.tsx 4/23/2025
 - Completed getSongs.ts and types.ts 4/23/2025
+- Completed the SubmitButton.tsx 4/24/2025
+- Completed the /playlist/[genre] routing 4/24/2025
 
 Abdulrhman:
 - Created Playlist.tsx file 4/23/2025
+- Completed the SongComponent.tsx 4/24/2025
+- Completed the /playlist/[genre] routing 4/24/2025
 
 Welli:
 

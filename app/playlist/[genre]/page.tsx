@@ -1,4 +1,4 @@
-//worked on by Abdulrhman Alharbi and Julian Lim Jun Ren
+// Worked on by Abdulrhman Alharbi and Julian Lim Jun Ren
 "use client";
 import Playlist from "@/components/Playlist";
 import {getSongs} from "@/lib/getSongs"
