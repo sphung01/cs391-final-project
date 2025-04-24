@@ -5,7 +5,7 @@
 "use server"
 import { Song } from "./types";
 
-if (!process.env.GENIUS_API_KEY || !process.env.DISCOGS_API_KEY) {
+if (!process.env.DISCOGS_API_KEY) {
     throw new Error('Missing api key environment variable');
 }
 const DISCOGS_API_KEY: string = process.env.DISCOGS_API_KEY;
