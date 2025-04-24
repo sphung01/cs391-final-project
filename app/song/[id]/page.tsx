@@ -12,7 +12,7 @@ export default function SongPage() {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const params = useParams();
-    const id = Number(params);
+    const id = Number(params.id);
 
     useEffect(() => {
         console.log("Fetching songs for id: ", id);
