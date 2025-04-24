@@ -12,9 +12,10 @@ export default function PlaylistPage() {
     const [songs, setSongs] = useState<Song[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
-    const genre = params.genre as string;
+    const genre = decodeURIComponent(params.genre as string);
 
     useEffect(() => {
+        console.log("Fetching songs for genre: ", genre);
         getSongs(decodeURIComponent(genre))
             .then((data)=>{
                     if (data) {
