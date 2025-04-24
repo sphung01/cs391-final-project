@@ -32,9 +32,11 @@ export async function getSongs(genre: string){
     const data = await res.json();
     if (!res.ok) {
         throw new Error(`Error: ${res.status} ${res.statusText}`);
+    } else if (data.results.length === 0) {
+        throw new Error(`No songs found for genre: ${genre}. Playlist generation aborted.`);
     } else {
-        console.log(data.results);
         data.results = pickRandomSongs(data.results);
+        console.log(data.results);
         return data;
     }
 }

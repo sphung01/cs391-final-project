@@ -6,7 +6,8 @@ const genres = [
     "Classical",
     "Electronic",
     "Folk, World, & Country",
-    "Funk / Soul",
+    "Funk",
+    "Soul",
     "Hip-Hop",
     "Jazz",
     "Latin",
@@ -14,7 +15,8 @@ const genres = [
     "Pop",
     "Reggae",
     "Rock",
-    "Stage & Screen"
+    "Stage & Screen",
+    "TESTNOSONGSAKLSDJASJKD"
 ];
 
 export default function DropdownList(props: { genre: string, setGenre: (genre: string) => void }) {

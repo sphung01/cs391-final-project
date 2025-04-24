@@ -17,7 +17,6 @@ export default function UserInput() {
 
     const [genre, setGenre] = useState<string>("");
     const [error, setError] = useState<string | null>(null);
-    // const [songs, setSongs] = useState<Song[]>([]);
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -29,23 +28,6 @@ export default function UserInput() {
         }
         // redirect to playlist page with the selected genre
         router.push(`/playlist/${genre}`);
-        
-        // clear previous error, loading state, and songs
-
-        // // calling async function to fetch songs, with error handling to inform user of issues to avoid redirecting to an empty page
-        // getSongs(genre)
-        //     .then((data)=>{
-        //             if (data) {
-        //                 setSongs(data.results);
-        //             } else {
-        //                 setError("No songs found");
-        //             }
-        //             setLoading(false);
-        //         })
-        //     .catch((e: Error)=> {
-        //         setError(e.message);
-        //         setLoading(false); // Steven: Fixed loading error here
-        //     });
     };
     
     return(
@@ -59,17 +41,6 @@ export default function UserInput() {
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
             </form>
-            {/* <div>
-                 <h1 className="justify-self-center items-center justify-center">Testing results:</h1>
-                <div className="w-[50%] p-4 justify-self-center items-center justify-center">
-                    {songs.map((song) => (
-                        <div key={song.id} className="my-2 bg-gray-500 p-4 rounded-2xl">
-                            <img src={song.cover_image} alt={song.title} className="w-16 h-16" />
-                            <p>{song.title}</p>
-                        </div>
-                    ))}
-                </div> 
-            </div> */}
         </div>
     )
 }
