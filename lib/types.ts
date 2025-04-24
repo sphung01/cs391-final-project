@@ -13,3 +13,8 @@ export type Song = {
 export interface SongProps {
     song: Song;
 }
+
+export type SongInfo = {
+    title: string;
+    country: string;
+}
