@@ -60,11 +60,12 @@ export default function UserInput(props: {songs: Song[], setSongs: (songs: Song[
                 </div>
             </form>
             <div>
-                <h1>Testing results:</h1>
+                {/* Steven: Added some styling so that you have an idea for the playlist.tsx */}
+                <h1 className="justify-self-center items-center justify-center">Testing results:</h1>
                 {error && <p className="text-red-500">{error}</p>}
-                <div>
+                <div className="w-[50%] p-4 justify-self-center items-center justify-center">
                     {props.songs.map((song) => (
-                        <div key={song.id} className="my-2">
+                        <div key={song.id} className="my-2 bg-gray-500 p-4 rounded-2xl">
                             <img src={song.cover_image} alt={song.title} className="w-16 h-16" />
                             <p>{song.title}</p>
                         </div>
