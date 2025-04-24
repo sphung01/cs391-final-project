@@ -4,18 +4,11 @@
     The server will retrieve and fetch that info and respond back to the client.
     In which case, should redirect the user to a different page depending on the genre.
 */
-
-// Steven Phung: I have formatted where this form wraps the button and input field. Rest is up to you.
 "use client"
-import {getSongs} from "@/lib/getSongs"
 import {useState} from "react"
 import SubmitButton from "./SubmitButton";
 import DropdownList from "./DropdownList";
-import { Song } from "@/lib/types";
 import { useRouter } from "next/navigation";
-
-
-
 
 export default function UserInput() {
     /*styling*/
@@ -23,7 +16,6 @@ export default function UserInput() {
     const titleStyling = "text-[calc(3px+1.5vw)] font-semibold text-white my-[1vh]";
 
     const [genre, setGenre] = useState<string>("");
-    const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     // const [songs, setSongs] = useState<Song[]>([]);
     const router = useRouter();
@@ -31,16 +23,13 @@ export default function UserInput() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError(null); // clear previous error
-        setLoading(true);
         if (!genre) {
             setError("Please select a genre");
             return;
         }
-
-        
         // redirect to playlist page with the selected genre
         router.push(`/playlist/${genre}`);
-        setLoading(false);
+        
         // clear previous error, loading state, and songs
 
         // // calling async function to fetch songs, with error handling to inform user of issues to avoid redirecting to an empty page
@@ -66,7 +55,7 @@ export default function UserInput() {
                 <div className="flex flex-col my-[1vh] w-[50%]">
                     <label htmlFor="genre" className="">Pick a genre:</label>
                     <DropdownList genre={genre} setGenre={setGenre} />
-                    <SubmitButton loading={loading} />
+                    <SubmitButton/>
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
             </form>
