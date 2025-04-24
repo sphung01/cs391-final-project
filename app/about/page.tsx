@@ -3,9 +3,10 @@
 */
 
 export default function AboutPage() {
+    const mainStyling = "min-h-screen w-full flex justify-center items-center"
     return(
-        <div>
+        <main className={mainStyling}>
             Hello About Page!
-        </div>
+        </main>
     )
 }
