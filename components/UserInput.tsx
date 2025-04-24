@@ -45,6 +45,7 @@ export default function UserInput(props: {songs: Song[], setSongs: (songs: Song[
             .catch((e: Error)=> {
                 console.log("There was an error fetching data", e)
                 setError(e.message);
+                setLoading(false); // Steven: Fixed loading error here
             });
     };
     
