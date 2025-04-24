@@ -6,7 +6,7 @@ export type Song = {
     cover_image: string;
     year: string;
     country: string;
-    genre: string;
+    genre: string[];
     style: string[];
 } 
 
