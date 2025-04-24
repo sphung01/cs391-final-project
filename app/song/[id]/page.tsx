@@ -3,12 +3,12 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import DetailedSongDisplay from "@/components/DetailedSongDisplay";
-import { Song } from "@/lib/types";
+import { SongInfo } from "@/lib/types";
 import { getSongById } from "@/lib/getSongById";
 
 export default function SongPage() {
     const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
-    const [song, setSong] = useState<Song[]>([]);
+    const [song, setSong] = useState<SongInfo[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const params = useParams();

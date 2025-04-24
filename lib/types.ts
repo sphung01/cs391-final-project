@@ -16,5 +16,13 @@ export interface SongProps {
 
 export type SongInfo = {
     title: string;
+    thumb: string;
+    year: string;
     country: string;
+    genre: string[];
+    style: string[];
+}
+
+export interface SongInfoProps {
+    song: SongInfo;
 }
