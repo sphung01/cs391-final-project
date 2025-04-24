@@ -28,7 +28,7 @@ function pickRandomSongs(results: Song[]) {
 }
 
 export async function getSongs(genre: string){
-    const res = await fetch(`${DISCOGS_API_URL}/database/search?genre=${genre}&per_page=100&token=${DISCOGS_API_KEY}`);
+    const res = await fetch(`${DISCOGS_API_URL}/database/search?genre=${genre}&type=release&per_page=100&token=${DISCOGS_API_KEY}`);
     const data = await res.json();
     if (!res.ok) {
         throw new Error(`Error: ${res.status} ${res.statusText}`);
