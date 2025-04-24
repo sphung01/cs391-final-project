@@ -1,3 +1,5 @@
+// Worked by Steven Phung
+
 /* 
     The About page is here to just talk about the what the website is.
 */
