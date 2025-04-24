@@ -1,7 +1,0 @@
-/* 
-    This is the page that the client will be redirected to
-    once the response is given from the server
-
-    Suggestion is to import the redirect. It should be in the NextJS
-    discussions if you take a look there.
-*/

@@ -10,6 +10,6 @@ export type Song = {
     style: string[];
 } 
 
-interface SongProps {
+export interface SongProps {
     song: Song;
 }
