@@ -1,3 +1,5 @@
+// Worked on by Steven Phung
+
 import Link from "next/link"; 
 
 export default function Footer(){
