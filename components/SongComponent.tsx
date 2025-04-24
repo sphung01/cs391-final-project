@@ -1,7 +1,7 @@
 import {SongProps} from "@/lib/types";
 import Link from "next/link";
 
-const SongStyling = "flex flex-col gap-2 max-w-3xl w-full p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-white hover:shadow-[0px_0px_15px_2px_rgba(255,255,255,0.3)] transition "
+const SongStyling = "flex flex-col gap-2 max-w-3xl min-w-[30vw] w-full p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-white hover:shadow-[0px_0px_15px_2px_rgba(255,255,255,0.3)] transition "
 
 function ArtistTitle(title: string): {artist: string, songname: string} {
     const seperator = title.indexOf("-");   //split on first -
