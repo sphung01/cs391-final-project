@@ -10,7 +10,7 @@ export default function Footer(){
     return(
         <div className="bg-black">
             {/* The credits link leads you to the about page to show developers */}
-            <p className="text-white">All Rights Reserved by PlaylistGeneratorDevs: <Link href="/about">Credits</Link> &#169;</p>
+            <p className="text-white">All Rights Reserved by AlbumDiscoveryDevs: <Link href="/about">Credits</Link> &#169;</p>
         </div>
     );
 }
