@@ -4,7 +4,7 @@
 //localstorage can only be used client side
 import DropdownComponent from "@/components/DropdownComponent";
 import AlbumList from "@/components/AlbumList";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 
 const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
 const dropdownStyling = "text-center w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2 my-[0.5vh] mb-[4vh]"
@@ -28,17 +28,22 @@ const genres = [
 ];
 
 export default function HistoryPage() {
-    const stored = localStorage.getItem("history");
-    const history = stored ? JSON.parse(stored) : [];   //array is stored as string, so it needs to be converted back
     const [genre, setGenre] = useState<string>("All");
-    
-    const filteredHistory = history.filter((album: { genre: string }) => genre !== "All" ? album.genre.includes(genre) : true); 
+    const [history, setHistory] = useState([]);
+
+    useEffect(() => {
+            const stored = localStorage.getItem("history");
+            const history = stored ? JSON.parse(stored) : [];//array is stored as string, so it needs to be converted back
+            const filteredHistory = history.filter((album: { genre: string }) => genre !== "All" ? album.genre.includes(genre) : true); 
+            setHistory(filteredHistory);
+        }, [genre]
+    );
 
     return (
         <main className={mainStyling}>
             <h1 className="text-[calc(3px+1.5vw)] mb-[2vh]">{!history.length ? "History empty" : history.length + " albums found in history"}</h1>
             <DropdownComponent optionName="Genre" styling={dropdownStyling} options={genres} choice={genre} setChoice={setGenre} />
-            <AlbumList albums={filteredHistory} />
+            <AlbumList albums={history} />
         </main>
     )
 }
