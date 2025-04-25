@@ -24,8 +24,9 @@ Julian:
 - Completed the /albums/[genre] routing 4/24/2025
 - Implemented Params and SearchParams parsing in /albums/[genre] 4/24/2025
 - Renamed all instances of song or playlists to album and albums. Full overhaul of names, renamed readMe components and variables too. 4/24/2025
-- Restructured DropdownList to be a wrapper of new DropdownComponents for reusability 4/24/2025
+- Restructured DropdownList.tsx to be a wrapper of newly made DropdownComponents.tsx for reusability 4/24/2025
 - Implemented filtering by genre for the history page 4/24/2025
+- Modified styling of history page's delete button and genre dropdown 4/25/2025
 
 Abdulrhman:
 - Created AlbumList.tsx file 4/23/2025
