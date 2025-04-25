@@ -12,9 +12,9 @@ import { useRouter } from "next/navigation";
 
 export default function UserInput() {
     /*styling*/
-    const inputFormStyling = "flex flex-col justify-self-center items-center justify-center w-[50vw] min-h-[50vh] bg-green-500 rounded-3xl drop-shadow-lg";
-    const titleStyling = "text-[calc(3px+1.5vw)] font-semibold";
-    const subtitleStyling = "text-[calc(3px+1vw)] font-semibold"; 
+    const inputFormStyling = "flex flex-col items-center justify-center w-[80vw] min-h-[60vh] sm:w-[50vw] sm:p-[4vw] sm:min-h-[30vw] my-[20vw] sm:my-0 bg-green-500 rounded-3xl drop-shadow-lg";
+    const titleStyling = "text-xl sm:text-[calc(3px+1.8vw)] font-semibold";
+    const subtitleStyling = "text-lg sm:text-[calc(3px+1.2vw)] font-semibold"; 
     const titleDivStyling = "text-center my-[1vh]"
 
     const [genre, setGenre] = useState<string>("");
@@ -41,7 +41,7 @@ export default function UserInput() {
                     <h1 className={titleStyling}>Albums Generator</h1>
                     <h2 className={subtitleStyling}>Discover new albums to listen to</h2>
                 </div>
-                <div className="flex flex-col my-[1vh] w-[50%]">
+                <div className="flex flex-col my-[1vh] w-[80%] sm:w-[90%]">
                     <DropdownList genre={genre} setGenre={setGenre} numResults={numResults} setNumResults={setNumResults} />
                     <SubmitButton/>
                 </div>
