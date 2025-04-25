@@ -11,17 +11,18 @@ export default function AboutPage() {
     return(
         <main className={mainStyling}>
             <div className={divContainer}>
-                <h2 className={titleStyling}>Welcome to our PlaylistGenerator!</h2>
+                <h2 className={titleStyling}>Welcome to AlbumDiscovery!</h2>
                 <h2 className={titleStyling}>Created 4/22/2025</h2>
                 <p className="p-10">
                     Here on this website, you can pick any genre to your liking by using the dropdown box! 
-                    After picking your genre, the songs in your playlist will be randomly generated for you.
-                    If you do not like the playlist, you can try generating again.
+                    You can also change the number of albums that you want to discover.
+                    After picking your genre and number of albums, a list will be generated for you. If there
+                    is nothing that you like, you can re-generate again! Thank you for using this website!
                 </p>
                 <p className="p-6">
                     This website was developed using Next.js
                 </p>
-                <p className="p-6">
+                <p className="p-6 font-bold">
                     Dev Team: Steven, Julian, Welli, and Abdulrhman
                 </p>
             </div>
