@@ -1,7 +1,7 @@
 // Worked on by Abdulrhman Alharbi and Julian Lim Jun Ren
 "use client";
 import Playlist from "@/components/Playlist";
-import {getSongs} from "@/lib/getSongs"
+import {getAlbumsByGenre} from "@/lib/getAlbumsByGenre"
 import { useParams, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Song } from "@/lib/types";
@@ -21,7 +21,7 @@ export default function PlaylistPage() {
 
     useEffect(() => {
         console.log("Fetching songs for genre: ", genre);
-        getSongs(decodeURIComponent(genre))
+        getAlbumsByGenre(decodeURIComponent(genre), numResults as string)
             .then((data)=>{
                     if (data) {
                         setSongs(data.results);
