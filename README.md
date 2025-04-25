@@ -18,9 +18,10 @@ Julian:
 - Managed to get the API to operate 4/23/2025
 - Modified UI for UserInput.tsx 4/23/2025
 - Created the DropdownList.tsx 4/23/2025
-- Completed getSongs.ts and types.ts 4/23/2025
+- Completed getAlbumsByGenre.ts and types.ts 4/23/2025
 - Completed the SubmitButton.tsx 4/24/2025
-- Completed the /playlist/[genre] routing 4/24/2025
+- Completed the /albums/[genre] routing 4/24/2025
+- Implemented Params and SearchParams parsing in /albums/[genre] 4/24/2025
 
 Abdulrhman:
 - Created Playlist.tsx file 4/23/2025
