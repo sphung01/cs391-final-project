@@ -1,5 +1,6 @@
-//Worked on by Abdulrhman Alharbi
-//Genre filtering done by Julian Lim Jun Ren
+// Worked on by Abdulrhman Alharbi
+// Genre filtering done by Julian Lim Jun Ren
+// Delete button done by Steven Phung
 "use client"
 //localstorage can only be used client side
 import DropdownComponent from "@/components/DropdownComponent";
@@ -7,7 +8,7 @@ import AlbumList from "@/components/AlbumList";
 import {useEffect, useState} from "react";
 
 const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
-const dropdownStyling = "text-center w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2 my-[0.5vh] mb-[4vh]"
+const dropdownStyling = "text-center w-full p-[1vh] rounded-lg border-4 focus:outline-none focus:ring-2 my-[0.5vh] mb-[4vh]"
 
 const genres = [
     "Blues",
@@ -39,10 +40,19 @@ export default function HistoryPage() {
         }, [genre]
     );
 
+    const deleteHistory = () => {
+        localStorage.clear();
+        setHistory([]);
+    }
+
+
     return (
         <main className={mainStyling}>
             <h1 className="text-[calc(3px+1.5vw)] mb-[2vh]">{!history.length ? "History empty" : history.length + " albums found in history"}</h1>
             <DropdownComponent optionName="Genre" styling={dropdownStyling} options={genres} choice={genre} setChoice={setGenre} />
+            <button className="border-4 p-2 mb-[2vh] rounded-lg cursor-pointer" onClick={deleteHistory}>
+                Delete History
+            </button>
             <AlbumList albums={history} />
         </main>
     )
