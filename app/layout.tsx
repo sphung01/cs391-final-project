@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CS391 Playlist Generator",
-  description: "A website that allows users to randomly generate their own playlists based on a selected genre.",
+  title: "CS391 Albums Generator",
+  description: "A website that allows users to randomly generate new albums to discover based on a selected genre.",
 };
 
 export default function RootLayout({

@@ -1,43 +1,43 @@
 //By Abdulrhman Alharbi
 
-import {SongProps} from "@/lib/types";
+import {Album, AlbumProps} from "@/lib/types";
 import Link from "next/link";
 
-const SongStyling = "flex flex-col gap-2 max-w-3xl min-w-[30vw] w-full p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-white hover:shadow-[0px_0px_15px_2px_rgba(255,255,255,0.3)] transition "
+const AlbumStyling = "flex flex-col gap-2 max-w-3xl min-w-[30vw] w-full p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-white hover:shadow-[0px_0px_15px_2px_rgba(255,255,255,0.3)] transition "
 
-function ArtistTitle(title: string): {artist: string, songname: string} {
+function ArtistTitle(title: string): {artist: string, albumname: string} {
     const seperator = title.indexOf("-");   //split on first -
     if (seperator === -1) {
-        return { artist: "Unknown", songname: title };
+        return { artist: "Unknown", albumname: title };
     }
 
     const artist = title.slice(0, seperator);
-    const songname = title.slice(seperator + 2);
+    const albumname = title.slice(seperator + 2);
 
-    return { artist, songname };
+    return { artist, albumname };
 }
 
-export default function SongComponent({ song }: SongProps) {
-    const { artist, songname } = ArtistTitle(song.title);
+export default function AlbumComponent({ album }: AlbumProps) {
+    const { artist, albumname } = ArtistTitle(album.title);
 
     return (
         <Link
-            href={`/song/${song.id}`}
-            className={SongStyling}
+            href={`/album/${album.id}`}
+            className={AlbumStyling}
         >
             {/* img + title container */}
             <div
                 className="flex items-center gap-4"
             >
-                <img src={song.cover_image} alt={`cover of ${song.title}`} className="w-20 h-20 rounded shadow-lg" />
+                <img src={album.cover_image} alt={`cover of ${album.title}`} className="w-20 h-20 rounded shadow-lg" />
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-lg font-semibold text-black">{songname}</h2>
+                    <h2 className="text-lg font-semibold text-black">{albumname}</h2>
                     <p className="text-sm text-gray-500">{artist}</p>
                 </div>
             </div>
             <p className="text-sm text-gray-500 ml-10">
                 {
-                    [song.year, song.country, ...song.genre]
+                    [album.year, album.country, ...album.genre]
                         .filter(e => e) //remove empty strings
                         .map((metadata, index, arr) => (
                             <span key={index}>

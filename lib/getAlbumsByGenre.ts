@@ -3,7 +3,7 @@
     Server is passed the genre from the client, fetches the songs from the API, and returns the songs to the client.
 */
 "use server"
-import { Song } from "./types";
+import { Album } from "./types";
 
 if (!process.env.DISCOGS_API_KEY) {
     throw new Error('Missing api key environment variable');
@@ -12,9 +12,9 @@ const DISCOGS_API_KEY: string = process.env.DISCOGS_API_KEY;
 const DISCOGS_API_URL: string = 'https://api.discogs.com';
 
 /*constructing a randomised selection of songs from the full fetched array of songs produces better results than query randomising*/
-function pickRandomSongs(results: Song[]) {
-    const count: number = 10;
-    const selectedSongs: Song[] = [];
+function pickRandomSongs(results: Album[], numResults: number) {
+    const count: number = numResults;
+    const selectedSongs: Album[] = [];
     if (results.length < count) {
         return results;
     }
@@ -27,15 +27,15 @@ function pickRandomSongs(results: Song[]) {
     return selectedSongs;
 }
 
-export async function getSongs(genre: string){
+export async function getAlbumsByGenre(genre: string, numResults: string) {
     const res = await fetch(`${DISCOGS_API_URL}/database/search?genre=${genre}&type=release&per_page=100&token=${DISCOGS_API_KEY}`);
     const data = await res.json();
     if (!res.ok) {
         throw new Error(`Error: ${res.status} ${res.statusText}`);
     } else if (data.results.length === 0) {
-        throw new Error(`No songs found for genre: ${genre}. Playlist generation aborted.`);
+        throw new Error(`No albums found for genre: ${genre}. Album generation aborted.`);
     } else {
-        data.results = pickRandomSongs(data.results);
+        data.results = pickRandomSongs(data.results, parseInt(numResults));
         console.log(data.results);
         return data;
     }

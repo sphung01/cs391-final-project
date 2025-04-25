@@ -1,6 +1,6 @@
 
 // Written by Julian
-export type Song = {
+export type Album = {
     id: number;
     title: string;
     cover_image: string;
@@ -10,16 +10,16 @@ export type Song = {
     style: string[];
 } 
 
-export interface SongProps {
-    song: Song;
+export interface AlbumProps {
+    album: Album;
 }
 
-export type SongInfo = {
+export type AlbumInfo = {
     title: string;
     thumb: string;
     country: string;
 }
 
-export interface SongInfoProps {
-    song: SongInfo;
+export interface AlbumInfoProps {
+    album: AlbumInfo;
 }

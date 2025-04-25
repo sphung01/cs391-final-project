@@ -1,7 +1,7 @@
 // Worked on by Steven Phung
 "use server"
 
-export async function getSongById(id: number){
+export async function getAlbumById(id: number){
     const res = await fetch(`https://api.discogs.com/releases/${id}`);
     const data = await res.json();
     if (!res.ok) {

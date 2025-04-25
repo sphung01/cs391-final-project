@@ -12,21 +12,22 @@ Steven:
 - Completed the "About" page 4/23/2025
 - Implemented getSongById.ts 4/24/2025
 - Attempted to implement page in song/[id] 4/24/2025
-- Completed Light and Dark mode for better user experience 4/24/2025
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
 - Managed to get the API to operate 4/23/2025
 - Modified UI for UserInput.tsx 4/23/2025
 - Created the DropdownList.tsx 4/23/2025
-- Completed getSongs.ts and types.ts 4/23/2025
+- Completed getAlbumsByGenre.ts and types.ts 4/23/2025
 - Completed the SubmitButton.tsx 4/24/2025
-- Completed the /playlist/[genre] routing 4/24/2025
+- Completed the /albums/[genre] routing 4/24/2025
+- Implemented Params and SearchParams parsing in /albums/[genre] 4/24/2025
+- Renamed all instances of song or playlists to album and albums. Full overhaul of names, renamed readMe components and variables too. 4/24/2025
 
 Abdulrhman:
-- Created Playlist.tsx file 4/23/2025
-- Completed the SongComponent.tsx 4/24/2025
-- Completed the /playlist/[genre] routing 4/24/2025
+- Created AlbumList.tsx file 4/23/2025
+- Completed the AlbumComponent.tsx 4/24/2025
+- Completed the /album/[genre] routing 4/24/2025
 
 Welli:
 
