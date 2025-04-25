@@ -3,7 +3,7 @@
 import {Album, AlbumProps} from "@/lib/types";
 import Link from "next/link";
 
-const AlbumStyling = "flex flex-col gap-2 max-w-3xl min-w-[30vw] w-full p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-white hover:shadow-[0px_0px_15px_2px_rgba(255,255,255,0.3)] transition "
+const AlbumStyling = "flex flex-col gap-2 max-w-3xl min-w-[30vw] w-full p-4 rounded-2xl shadow-lg bg-[#dee2e6] hover:bg-[#e9ecef] hover:shadow-[0px_0px_15px_2px_#e9ecef4d] transition "
 
 function ArtistTitle(title: string): {artist: string, albumname: string} {
     const seperator = title.indexOf("-");   //split on first -
