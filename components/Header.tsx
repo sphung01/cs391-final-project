@@ -40,7 +40,7 @@ export default function Header() {
     // Return the header with title, home link, and about link
     return (
         <header className={headerStyling}>
-            <h2 className={titleStyling}>PlaylistGenerator</h2>
+            <h2 className={titleStyling}>AlbumDiscovery</h2>
             {/* Created a button here to change the mode */}
             <button onClick={modeHandling} className="border-groove border-white border-4 rounded-2xl w-20 cursor-pointer">
                 {myContext?.state.mode === "dark" ? "🌙" : "☀️"}
