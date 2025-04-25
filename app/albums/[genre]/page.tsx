@@ -62,7 +62,7 @@ export default function PlaylistPage() {
 
     return (
         <main className={mainStyling}>
-            <h1 className="text-[calc(3px+1.5vw)] mb-[2vh]">{loading ? "Generating playlist..." : error ? error : `Playlist generated for: ${genre}`}</h1>
+            <h1 className="text-[calc(3px+1.5vw)] mb-[2vh]">{loading ? "Generating albums..." : error ? error : `Albums generated for: ${genre}`}</h1>
             <AlbumList albums={albums} />
         </main>
     )
