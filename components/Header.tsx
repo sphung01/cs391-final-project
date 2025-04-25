@@ -24,7 +24,7 @@ export default function Header() {
     // Return the header with title, home link, and about link
     return (
         <header className={headerStyling}>
-            <h2 className={titleStyling}>PlaylistGenerator</h2>
+            <h2 className={titleStyling}>AlbumsGenerator</h2>
             <nav className={navStyling}>
                 <Link href="/" className={linkStyling}>
                 Home
