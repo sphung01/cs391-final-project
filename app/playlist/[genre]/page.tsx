@@ -2,18 +2,22 @@
 "use client";
 import Playlist from "@/components/Playlist";
 import {getSongs} from "@/lib/getSongs"
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Song } from "@/lib/types";
 
 export default function PlaylistPage() {
     const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
     const params = useParams();
+    const searchParams = useSearchParams();
     
     const [songs, setSongs] = useState<Song[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+
+    // get genre and requested number of albums from params
     const genre = decodeURIComponent(params.genre as string);
+    const numResults = searchParams.get("numResults");
 
     useEffect(() => {
         console.log("Fetching songs for genre: ", genre);
