@@ -1,5 +1,5 @@
 //Worked on by Abdulrhman Alharbi
-
+//Styling done by Julian Lim Jun Ren and Abdulrhman Alharbi 
 import {AlbumProps} from "@/lib/types";
 import Link from "next/link";
 
