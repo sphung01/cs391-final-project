@@ -5,7 +5,10 @@
     has the title and the tabs (Like the "about" page) that leads to a different page
 */
 
-import Link from "next/link"; 
+"use client"
+import Link from "next/link";
+import { useContext } from "react";
+import { ModeContext } from "@/components/ThemeProvider";
 
 /* 
     This function returns a Header component for layout.tsx.
@@ -21,10 +24,27 @@ export default function Header() {
     const titleStyling = "text-4xl font-semibold p-4 text-white";
     const navStyling = "p-2 m-4";
 
+
+    // Used "useContext" to get the mode, dark function, and light function.
+    const myContext = useContext(ModeContext);
+
+    const modeHandling = () => {
+        if(myContext?.state.mode === "dark") {
+            myContext?.function.changeToLight();
+        } else {
+            myContext?.function.changeToDark();
+        }
+    }
+
+
     // Return the header with title, home link, and about link
     return (
         <header className={headerStyling}>
             <h2 className={titleStyling}>PlaylistGenerator</h2>
+            {/* Created a button here to change the mode */}
+            <button onClick={modeHandling} className="border-groove border-white border-4 rounded-2xl w-20 cursor-pointer">
+                {myContext?.state.mode === "dark" ? "🌙" : "☀️"}
+            </button>
             <nav className={navStyling}>
                 <Link href="/" className={linkStyling}>
                 Home

@@ -1,1 +1,25 @@
+/* Modified by Steven Phung*/
+
 @import "tailwindcss";
+
+/* 
+    The animation allows transitioning between light and dark mode.
+    This is important to avoid any flickering that can damage eyes.
+*/
+.anim{
+    transition: 1s all ease;
+}
+
+/* 
+    Changes the color of text or background. Both the string in the provider
+    and the class name here have to match.
+*/
+.light {
+    background-color: white;
+    color: black;
+}
+
+.dark {
+    background-color: #141414;
+    color: white;
+}
