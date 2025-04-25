@@ -20,15 +20,17 @@ export default function UserInput() {
     const [genre, setGenre] = useState<string>("");
     const [numResults, setNumResults] = useState<string>("10");
     const [error, setError] = useState<string | null>(null);
+    const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
         setError(null); // clear previous error
+        e.preventDefault();
         if (!genre || !numResults) {
             setError("Please select fields.");
             return;
         }
+        setLoading(true); 
         const encodedGenre = encodeURIComponent(genre);
         // redirect to page of albums with the selected genre
         router.push(`/albums/${encodedGenre}?numResults=${numResults}`);
@@ -43,7 +45,7 @@ export default function UserInput() {
                 </div>
                 <div className="flex flex-col my-[1vh] w-[80%] sm:w-[90%]">
                     <DropdownList genre={genre} setGenre={setGenre} numResults={numResults} setNumResults={setNumResults} />
-                    <SubmitButton/>
+                    <SubmitButton loading={loading}/>
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
             </form>
