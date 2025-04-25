@@ -29,6 +29,8 @@ Abdulrhman:
 - Created AlbumList.tsx file 4/23/2025
 - Completed the AlbumComponent.tsx 4/24/2025
 - Completed the /album/[genre] routing 4/24/2025
+- Added history feature and page 4/24/2025
+- Added storing history in localStorage 4/24/2025
 
 Welli:
 
