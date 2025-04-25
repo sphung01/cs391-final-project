@@ -20,7 +20,7 @@ import { ModeContext } from "@/components/ThemeProvider";
 export default function Header() {
     // Styling Attributes to help keep the code clean and good for resuability
     const linkStyling = "p-1 m-2 text-xl hover:underline text-white";
-    const headerStyling = "flex justify-between items-center h-20 bg-black";
+    const headerStyling = "flex justify-between items-center h-20 bg-black border-b-4 border-green-500";
     const titleStyling = "text-4xl font-semibold p-4 text-white";
     const navStyling = "p-2 m-4";
 
