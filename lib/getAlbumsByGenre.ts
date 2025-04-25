@@ -3,7 +3,7 @@
     Server is passed the genre from the client, fetches the songs from the API, and returns the songs to the client.
 */
 "use server"
-import { Song } from "./types";
+import { Album } from "./types";
 
 if (!process.env.DISCOGS_API_KEY) {
     throw new Error('Missing api key environment variable');
@@ -12,9 +12,9 @@ const DISCOGS_API_KEY: string = process.env.DISCOGS_API_KEY;
 const DISCOGS_API_URL: string = 'https://api.discogs.com';
 
 /*constructing a randomised selection of songs from the full fetched array of songs produces better results than query randomising*/
-function pickRandomSongs(results: Song[], numResults: number) {
+function pickRandomSongs(results: Album[], numResults: number) {
     const count: number = numResults;
-    const selectedSongs: Song[] = [];
+    const selectedSongs: Album[] = [];
     if (results.length < count) {
         return results;
     }

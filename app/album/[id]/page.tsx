@@ -2,13 +2,13 @@
 "use client";
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import DetailedSongDisplay from "@/components/DetailedSongDisplay";
-import { SongInfo } from "@/lib/types";
-import { getSongById } from "@/lib/getSongById";
+import AlbumDetailsDisplay from "@/components/AlbumDetailsDisplay";
+import { AlbumInfo } from "@/lib/types";
+import { getAlbumById } from "@/lib/getAlbumById";
 
 export default function SongPage() {
     const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
-    const [song, setSong] = useState<SongInfo[]>([]);
+    const [album, setAlbum] = useState<AlbumInfo>();
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const params = useParams();
@@ -16,10 +16,10 @@ export default function SongPage() {
 
     useEffect(() => {
         console.log("Fetching songs for id: ", id);
-        getSongById(id)
+        getAlbumById(id)
             .then((data)=>{
                     if (data) {
-                        setSong(data);
+                        setAlbum(data);
                     } else {
                         setError("No song found");
                     }
@@ -37,7 +37,7 @@ export default function SongPage() {
     return(
         <main className={mainStyling}>
             <h1 className="text-[calc(3px+1.5vw)] mb-[2vh]">{loading ? "Obtaining info on the song..." : error ? error : `Fetching data completed!`}</h1>
-            <DetailedSongDisplay song={song}/>
+            <AlbumDetailsDisplay album={album}/>
         </main>
     )
 }
