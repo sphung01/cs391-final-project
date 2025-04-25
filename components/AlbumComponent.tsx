@@ -15,7 +15,7 @@ const altAlbumContainerStyling = "flex flex-col w-[40vw] sm:w-[20vw] p-4 rounded
 const altAlbumCoverStyling = "w-full rounded drop-shadow-lg"
 const altAlbumNameStyling = "text-lg font-bold text-black truncate tracking-wide";
 const altArtistNameStyling = "text-sm italic text-gray-600 truncate";
-const altAlbumSubtitleStyling = "text-xs text-gray-500 text-center truncate"
+const altAlbumSubtitleStyling = "text-xs text-gray-400 text-center truncate tracking-tight";
 const altAlbumImgTitleContainerStyling = "flex flex-col items-center w-full"
 const altAlbumTitleContainerStyling = "flex flex-col w-full my-[1vh] text-center"
 

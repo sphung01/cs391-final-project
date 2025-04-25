@@ -8,9 +8,9 @@ import AlbumList from "@/components/AlbumList";
 import {useEffect, useState} from "react";
 
 const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
-const dropdownStyling = "min-h-[7vh] text-center w-full py-[1vh] rounded-lg border-4 focus:outline-none focus:ring-2"
-const deleteButtonStyling = "min-h-[7vh] bg-red-600 font-bold py-[1vh] px-[2vw] rounded-lg drop-shadow-lg active:bg-red-900 hover:bg-red-800 transition"
-const filterOptionsDivStyling = "flex flex-row justify-right mb-[4vh] gap-[1vw]"
+const dropdownStyling = "min-h-[7vh] text-sm sm:text-[calc(3px+1vw)] mb-[2vh] text-center w-full py-[1vh] rounded-lg border-4 focus:outline-none focus:ring-2"
+const deleteButtonStyling = "min-h-[7vh] text-sm sm:text-[calc(3px+1vw)] mb-[2vh] bg-red-600 font-bold py-[1vh] px-[2vw] rounded-lg drop-shadow-lg active:bg-red-900 hover:bg-red-800 transition"
+const filterOptionsDivStyling = "flex flex-col sm:flex-row justify-center mb-[2vh] sm:mb-[4vh] sm:gap-[1vw]"
 
 const genres = [
     "Blues",
@@ -49,7 +49,7 @@ export default function HistoryPage() {
 
     return (
         <main className={mainStyling}>
-            <h1 className="text-[calc(3px+1.5vw)] mb-[2vh]">{!history.length ? "History empty" : history.length + " albums found in history"}</h1>
+            <h1 className="text-xl sm:text-[calc(3px+1.5vw)] mb-[2vh]">{!history.length ? "History empty" : history.length + " albums found in history"}</h1>
             <div className={filterOptionsDivStyling}>
                 <button className={deleteButtonStyling} onClick={deleteHistory}>
                     Delete History
