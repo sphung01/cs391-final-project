@@ -29,8 +29,8 @@ export default function UserInput() {
             setError("Please select a genre");
             return;
         }
-        // redirect to playlist page with the selected genre
-        router.push(`/playlist/${genre}?numResults=${numResults}`);
+        // redirect to page of albums with the selected genre
+        router.push(`/albums/${genre}?numResults=${numResults}`);
     };
     
     return(
