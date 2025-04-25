@@ -3,12 +3,19 @@
 //localstorage can only be used client side
 
 import AlbumList from "@/components/AlbumList";
+import {useEffect, useState} from "react";
 
 const mainStyling = "min-h-screen w-full flex flex-col items-center py-[4vh]";
 
 export default function HistoryPage() {
-    const stored = localStorage.getItem("history");
-    const history = stored ? JSON.parse(stored) : [];   //array is stored as string, so it needs to be converted back
+    const [history, setHistory] = useState([]);
+
+    useEffect(() => {
+            const stored = localStorage.getItem("history");
+            const history = stored ? JSON.parse(stored) : [];//array is stored as string, so it needs to be converted back
+            setHistory(history);
+        }, []
+    );
 
     return (
         <main className={mainStyling}>
