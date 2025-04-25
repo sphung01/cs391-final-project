@@ -1,4 +1,4 @@
-//By Abdulrhman Alharbi
+//Worked on by Abdulrhman Alharbi
 
 import {Album, AlbumProps} from "@/lib/types";
 import Link from "next/link";

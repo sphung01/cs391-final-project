@@ -47,10 +47,13 @@ export default function Header() {
             </button>
             <nav className={navStyling}>
                 <Link href="/" className={linkStyling}>
-                Home
+                    Home
+                </Link>
+                <Link href="/history" className={linkStyling}>
+                    History
                 </Link>
                 <Link href="/about" className={linkStyling}>
-                About
+                    About
                 </Link>
             </nav>
         </header>

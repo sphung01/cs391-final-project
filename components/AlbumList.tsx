@@ -1,4 +1,4 @@
-//By Abdulrhman Alharbi
+//Worked on by Abdulrhman Alharbi
 
 import AlbumComponent from "./AlbumComponent";
 import { Album } from "@/lib/types";
