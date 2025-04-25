@@ -26,11 +26,12 @@ export default function UserInput() {
         e.preventDefault();
         setError(null); // clear previous error
         if (!genre || !numResults) {
-            setError("Please select a genre");
+            setError("Please select fields.");
             return;
         }
+        const encodedGenre = encodeURIComponent(genre);
         // redirect to page of albums with the selected genre
-        router.push(`/albums/${genre}?numResults=${numResults}`);
+        router.push(`/albums/${encodedGenre}?numResults=${numResults}`);
     };
     
     return(
