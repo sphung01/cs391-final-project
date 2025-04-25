@@ -36,7 +36,7 @@ export async function getAlbumsByGenre(genre: string, numResults: string) {
         throw new Error(`No albums found for genre: ${genre}. Album generation aborted.`);
     } else {
         data.results = pickRandomSongs(data.results, parseInt(numResults));
-        console.log(data.results);
+        // console.log(data.results);
         return data;
     }
 }

@@ -1,5 +1,6 @@
 //done by Julian Lim Jun Ren
 "use client"
+import DropdownComponent from "./DropdownComponent";
 const genres = [
     "Blues",
     "Brass & Military",
@@ -29,36 +30,12 @@ const results = [
 
 export default function DropdownList(props: { genre: string, setGenre: (genre: string) => void , numResults: string, setNumResults: (numResults: string) => void}) {
     const dropdownStyling = "w-full p-[1vh] rounded-lg border-4 border-white focus:outline-none focus:ring-2 my-[0.5vh]"
-    const optionStyling = "text-black"
     return (
         <>
-            <label htmlFor="genre" className="my-[0.5vh]">Pick a genre:</label>
-            <select
-                id="genre"
-                value={props.genre}
-                onChange={(e) => props.setGenre(e.target.value)}
-                className={dropdownStyling}
-                required
-            >
-                <option value="" className={optionStyling}>-- select a genre --</option>
-                {genres.map((genre) => (
-                    <option key={genre} value={genre} className={optionStyling}>{genre}</option>
-                ))}
-            </select>
-
-            <label htmlFor="numResults" className="my-[0.5vh]">Number of Results:</label>
-            <select
-                id="numResults"
-                value={props.numResults}
-                onChange={(e) => props.setNumResults(e.target.value)}
-                className={dropdownStyling}
-                required
-            >
-                <option value="" className={optionStyling}>-- number of results --</option>
-                {results.map((result) => (
-                    <option key={result} value={result} className={optionStyling}>{result}</option>
-                ))}
-            </select>
+            <label htmlFor="Genre" className="my-[0.5vh]">Pick a genre:</label>
+            <DropdownComponent optionName="Genre" styling={dropdownStyling} options={genres} choice={props.genre} setChoice={props.setGenre} />
+            <label htmlFor="Number of Results" className="my-[0.5vh]">Number of Results:</label>
+            <DropdownComponent optionName="Number of Results" styling={dropdownStyling} options={results} choice={props.numResults} setChoice={props.setNumResults} />
         </>
     )
 }
