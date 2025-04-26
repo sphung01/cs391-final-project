@@ -17,7 +17,7 @@ Steven:
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
-- Managed to get the API to operate 4/23/2025
+- Setup Discogs API connection. Wrote getAlbumsByGenre.ts 4/23/2025
 - Modified UI for UserInput.tsx 4/23/2025
 - Created the DropdownList.tsx 4/23/2025
 - Completed getAlbumsByGenre.ts and types.ts 4/23/2025
