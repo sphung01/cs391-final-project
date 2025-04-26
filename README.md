@@ -13,6 +13,7 @@ Steven:
 - Implemented getSongById.ts 4/24/2025
 - Attempted to implement page in song/[id] 4/24/2025
 - Finished implementing light and dark mode 4/24/2025
+- Helped fixed formatting issue in Header 4/25/2025
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
@@ -35,6 +36,8 @@ Abdulrhman:
 - Completed the /album/[genre] routing 4/24/2025
 - Added history feature and page 4/24/2025
 - Added storing history in localStorage 4/24/2025
+- Revamped the styling of the Header 4/25/2025
+- Made the site optimal for both mobile and web users 4/25/2025
 
 Welli:
 
@@ -42,13 +45,10 @@ Welli:
 ## Components that should be filled out. You can remove once it is done.
 
 App Directory:
-- Result page
-- playlist/[genre] page
-- song/[id] page
+- album/[id] page
 
 Components Directory:
-- SongComponent.tsx
-- DetailedSongComponent.tsx
+- AlbumDetailsDisplay.tsx
 
 Lib Directory:
 - All Done!

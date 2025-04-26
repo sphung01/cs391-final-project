@@ -28,7 +28,7 @@ const results = [
 ];
 
 export default function DropdownList(props: { genre: string, setGenre: (genre: string) => void , numResults: string, setNumResults: (numResults: string) => void}) {
-    const dropdownStyling = "w-full p-[1vh] text-lg sm:text-[calc(3px+1vw)] rounded-lg border-4 border-white focus:outline-none focus:ring-2 my-[0.5vh]"
+    const dropdownStyling = "w-full p-[1vh] text-lg sm:text-[calc(3px+1vw)] rounded-lg border-4 border-white focus:outline-none focus:ring-2 my-[0.5vh] cursor-pointer"
     const labelStyling = "text-lg sm:text-[calc(3px+1vw)] my-[0.5vh]"
     return (
         <>
