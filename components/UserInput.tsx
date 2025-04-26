@@ -37,7 +37,7 @@ export default function UserInput() {
     };
     
     return(
-        <div>
+        <div className="text-white"> {/* remove the classname if you don't want this behavior */}
             <form onSubmit={handleSubmit} className={inputFormStyling}>
                 <div className={titleDivStyling}>
                     <h1 className={titleStyling}>Albums Generator</h1>

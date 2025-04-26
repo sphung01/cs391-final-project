@@ -5,7 +5,7 @@
 */
 
 export default function AboutPage() {
-    const mainStyling = "min-h-screen w-full flex justify-center items-center"
+    const mainStyling = "min-h-screen w-full flex justify-center items-center text-white" /* remove text-white if you don't want this behavior */
     const divContainer = "flex flex-col justify-self-center items-center justify-center w-[50vw] bg-green-500 rounded-3xl drop-shadow-lg] p-6";
     const titleStyling = "font-bold"
     return(

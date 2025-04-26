@@ -1,5 +1,5 @@
 // Worked on by Steven Phung
-
+// Drop-down window, change active page color by Abdulrhman Alharbi
 /* 
     In the Header.tsx component, it's basically a full-width bar that
     has the title and the tabs (Like the "about" page) that leads to a different page
@@ -7,8 +7,11 @@
 
 "use client"
 import Link from "next/link";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ModeContext } from "@/components/ThemeProvider";
+import MenuIcon from '@mui/icons-material/Menu';
+import {usePathname} from "next/navigation";
+
 
 /* 
     This function returns a Header component for layout.tsx.
@@ -19,11 +22,12 @@ import { ModeContext } from "@/components/ThemeProvider";
 */
 export default function Header() {
     // Styling Attributes to help keep the code clean and good for resuability
-    const linkStyling = "p-1 m-2 text-xl hover:underline text-white";
-    const headerStyling = "flex flex-col sm:flex-row justify-between items-center h-20 bg-black border-b-4 border-green-500";
-    const titleStyling = "text-4xl font-semibold p-4 text-white";
-    const navStyling = "p-2 m-4";
+    const linkStyling           = "hidden md:block md:p-1 md:m-2 md:text-xl md:hover:text-green-500";
+    const linkStyling_mobile    = "p-1 text-xl md:hover:text-green-500";
+    const headerStyling = "flex flex-col sm:flex-row justify-between items-center h-20 border-b-4 border-green-500";
+    const titleStyling = "text-4xl font-semibold p-4 ";
 
+    const pathname = usePathname();
 
     // Used "useContext" to get the mode, dark function, and light function.
     const myContext = useContext(ModeContext);
@@ -36,26 +40,54 @@ export default function Header() {
         }
     }
 
+    const [menuOpen, setMenuOpen] = useState(false);
+    const burgerHandler = () => {
+        setMenuOpen(!menuOpen);
+    }
+
 
     // Return the header with title, home link, and about link
     return (
-        <header className={headerStyling}>
+        <header className={(myContext?.state.mode === "dark" ? "bg-black " : "bg-[#f0f0f0] ") + headerStyling}>
             <h2 className={titleStyling}>AlbumDiscovery</h2>
             {/* Created a button here to change the mode */}
-            <button onClick={modeHandling} className="border-groove border-white border-4 rounded-2xl w-20 cursor-pointer">
-                {myContext?.state.mode === "dark" ? "🌙" : "☀️"}
+
+            {/*right*/}
+            <div className="hidden md:flex items-center gap-6">
+                <nav className="flex gap-6">
+                    <Link href="/" className={(pathname === "/" ? "text-green-500 " : "") + linkStyling}>Home</Link>
+                    <Link href="/history" className={(pathname === "/history" ? "text-green-500 " : "") + linkStyling}>History</Link>
+                    <Link href="/about" className={(pathname === "/about" ? "text-green-500 " : "") + linkStyling}>About</Link>
+                </nav>
+                <button onClick={modeHandling}
+                        className={(myContext?.state.mode === "dark" ? "bg-[#1e1e1e] " : "bg-[#ffffff] ") + "px-2 py-1 text-lg ml-2 shadow-lg rounded-lg cursor-pointer mr-4"}>
+                    {myContext?.state.mode === "dark" ? "☀️" : "🌙"}
+                </button>
+            </div>
+
+            <button
+                onClick={burgerHandler}
+                className={(menuOpen ? "bg-green-500 " : "bg-black") + "block md:hidden px-2 py-1 h-full w-20 cursor-pointer"}
+            >
+                <MenuIcon className={
+                    "text-xl"
+                }/>
             </button>
-            <nav className={navStyling}>
-                <Link href="/" className={linkStyling}>
-                    Home
-                </Link>
-                <Link href="/history" className={linkStyling}>
-                    History
-                </Link>
-                <Link href="/about" className={linkStyling}>
-                    About
-                </Link>
-            </nav>
+
+            {menuOpen && (
+                <nav
+                    className={(myContext?.state.mode === "dark" ? "bg-black " : "bg-[#e1e1e1] ") + "md:hidden absolute top-20 p-4 shadow-lg flex flex-col space-y-2 z-50 w-full"}>
+                    <Link href="/" className={(pathname === "/" ? "text-green-500 " : "") + linkStyling_mobile}>Home</Link>
+                    <Link href="/history" className={(pathname === "/history" ? "text-green-500 " : "") + linkStyling_mobile}>History</Link>
+                    <Link href="/about" className={(pathname === "/about" ? "text-green-500 " : "") + linkStyling_mobile}>About</Link>
+                    <button onClick={modeHandling}
+                            className={(myContext?.state.mode === "dark" ? "bg-[#1e1e1e]" : "bg-[#ffffff] ") + "mt-2 px-3 py-1 bg-[#1e1e1e] rounded-lg text-lg cursor-pointer"}>
+                        {myContext?.state.mode === "dark" ? "Switch to Light Mode ☀️" : "Switch to Dark Mode 🌙"}
+                    </button>
+                </nav>
+            )}
+
+
         </header>
-        );
+    );
 }
