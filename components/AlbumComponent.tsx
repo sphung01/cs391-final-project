@@ -12,7 +12,7 @@ const albumImgTitleContainerStyling = "flex items-center gap-4"
 const albumTitleContainerStyling = "flex flex-col gap-4"
 
 const altAlbumContainerStyling = "flex flex-col w-[40vw] sm:w-[20vw] p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-[#dee2e6] hover:shadow-[0px_0px_15px_2px_#dee2e6] hover:scale-102 transition "
-const altAlbumCoverStyling = "w-full rounded drop-shadow-lg"
+const altAlbumCoverStyling = "w-full aspect-square rounded drop-shadow-lg overflow-hidden object-cover"
 const altAlbumNameStyling = "text-lg font-bold text-black truncate tracking-wide";
 const altArtistNameStyling = "text-sm italic text-gray-600 truncate";
 const altAlbumSubtitleStyling = "text-xs text-gray-400 text-center truncate tracking-tight";
