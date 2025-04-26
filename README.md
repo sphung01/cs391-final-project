@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) PlaylistGenerator project 
+This is our [Next.js](https://nextjs.org) AlbumDiscovery project 
 
 ## History based on what we did.
 
