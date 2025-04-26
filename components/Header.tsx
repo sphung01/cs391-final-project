@@ -24,7 +24,7 @@ export default function Header() {
     // Styling Attributes to help keep the code clean and good for resuability
     const linkStyling           = "hidden md:block md:p-1 md:m-2 md:text-xl md:hover:text-green-500";
     const linkStyling_mobile    = "p-1 text-xl md:hover:text-green-500";
-    const headerStyling = "flex flex-col sm:flex-row justify-between items-center h-20 border-b-4 border-green-500";
+    const headerStyling = "flex flex-row justify-between items-center h-20 border-b-4 border-green-500";
     const titleStyling = "text-4xl font-semibold p-4 ";
 
     const pathname = usePathname();
