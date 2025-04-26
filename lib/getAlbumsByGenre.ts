@@ -29,14 +29,16 @@ function pickRandomSongs(results: Album[], numResults: number) {
 
 export async function getAlbumsByGenre(genre: string, numResults: string) {
     const res = await fetch(`${DISCOGS_API_URL}/database/search?genre=${genre}&type=release&per_page=100&token=${DISCOGS_API_KEY}`);
-    const data = await res.json();
     if (!res.ok) {
         throw new Error(`Error: ${res.status} ${res.statusText}`);
-    } else if (data.results.length === 0) {
-        throw new Error(`No albums found for genre: ${genre}. Album generation aborted.`);
     } else {
-        data.results = pickRandomSongs(data.results, parseInt(numResults));
-        // console.log(data.results);
-        return data;
+        const data = await res.json();
+        if (data.results.length === 0) {
+            throw new Error(`No albums found for genre: ${genre}. Album generation aborted.`);
+        } else {
+            data.results = pickRandomSongs(data.results, parseInt(numResults));
+            // console.log(data.results);
+            return data;
+        }
     }
 }
