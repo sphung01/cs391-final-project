@@ -28,6 +28,7 @@ Julian:
 - Restructured DropdownList.tsx to be a wrapper of newly made DropdownComponents.tsx for reusability 4/24/2025
 - Implemented filtering by genre for the history page 4/24/2025
 - Modified styling of history page's delete button and genre dropdown 4/25/2025
+- Made UserInput and AlbumList have responsive styling 4/25/2025
 - Revamped styling of album list to be in card form and more user friendly for scrolling 4/25/2025
 
 Abdulrhman:
