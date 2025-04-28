@@ -41,6 +41,7 @@ export default function HistoryPage() {
         }, [genre]
     );
 
+    // Deletes the storage and clears the history array when button is clicked.
     const deleteHistory = () => {
         localStorage.clear();
         setHistory([]);

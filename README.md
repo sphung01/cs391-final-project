@@ -14,6 +14,7 @@ Steven:
 - Attempted to implement page in song/[id] 4/24/2025
 - Finished implementing light and dark mode 4/24/2025
 - Helped fixed formatting issue in Header 4/25/2025
+- Added many comments with logic and reasoning 4/28/2025
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
@@ -41,15 +42,21 @@ Abdulrhman:
 - Made the site optimal for both mobile and web users 4/25/2025
 
 Welli:
+- Completed the AlbumDetailsDisplay.tsx 4/28/2025
+- Made the tracklist with songs in an album 4/28/2025
+- Included name of artist and album in the Album Page 4/28/2025
+- Calculated the length of the tracklist based on average and total 4/28/2025
+- Made the title clickable to send you to homepage 4/28/2025
+
 
 
 ## Components that should be filled out. You can remove once it is done.
 
 App Directory:
-- album/[id] page
+- All Done!
 
 Components Directory:
-- AlbumDetailsDisplay.tsx
+- All Done!
 
 Lib Directory:
 - All Done!
