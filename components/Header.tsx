@@ -27,11 +27,20 @@ export default function Header() {
     const headerStyling = "flex flex-row justify-between items-center h-20 border-b-4 border-green-500";
     const titleStyling = "text-4xl font-semibold p-4 ";
 
+    /* 
+        Based off from quiz-6, we implemented a feature where if one of the tabs
+        were clicked and active, the color changes conditionally. By using usePathname(),
+        we are able to change the color depending on which tab is active or not.
+    */
     const pathname = usePathname();
 
-    // Used "useContext" to get the mode, dark function, and light function.
+    // Used "useContext" to get the mode state, dark function, and light function.
     const myContext = useContext(ModeContext);
 
+    /* 
+        When the button is pressed, the mode switches depending 
+        if the user was on dark or light mode.
+    */ 
     const modeHandling = () => {
         if(myContext?.state.mode === "dark") {
             myContext?.function.changeToLight();
@@ -40,6 +49,11 @@ export default function Header() {
         }
     }
 
+    /* 
+        This checks if the hamburger menu is clicked, the
+        navigation menu pops up to the user. This only works if user
+        is on mobile.
+    */
     const [menuOpen, setMenuOpen] = useState(false);
     const burgerHandler = () => {
         setMenuOpen(!menuOpen);
@@ -53,19 +67,30 @@ export default function Header() {
             </Link>
             {/* Created a button here to change the mode */}
 
-            {/*right*/}
+            {/* 
+                In tailwind, we used sm and md. It helps keep the website be more responsive
+                to both mobile and web users. 
+
+                Let's say for this case, we are using md:flex. Any screen that is 768px or above will
+                have flex in the header and appear on display for the user. But when the screen goes to 
+                mobile size, we hide the navigations to create room for the hamburger menu. 
+            */}
+
+            {/* right */}
             <div className="hidden md:flex items-center gap-6">
                 <nav className="flex gap-6">
                     <Link href="/" className={(pathname === "/" ? "text-green-500 " : "") + linkStyling}>Home</Link>
                     <Link href="/history" className={(pathname === "/history" ? "text-green-500 " : "") + linkStyling}>History</Link>
                     <Link href="/about" className={(pathname === "/about" ? "text-green-500 " : "") + linkStyling}>About</Link>
                 </nav>
+                {/* Handles light and dark mode */}
                 <button onClick={modeHandling}
                         className={(myContext?.state.mode === "dark" ? "bg-[#1e1e1e] " : "bg-[#ffffff] ") + "px-2 py-1 text-lg ml-2 shadow-lg rounded-lg cursor-pointer mr-4"}>
                     {myContext?.state.mode === "dark" ? "☀️" : "🌙"}
                 </button>
             </div>
 
+            {/* Handles opening or closing navigation tab */}
             <button
                 onClick={burgerHandler}
                 className={(menuOpen ? "bg-green-500 " : "bg-black") + "block md:hidden px-2 py-1 h-full w-20 cursor-pointer"}
@@ -75,6 +100,10 @@ export default function Header() {
                 }/>
             </button>
 
+            {/* 
+                Opens the navigation tabs. This only works or becomes visible if
+                user is on mobile.
+            */}
             {menuOpen && (
                 <nav
                     className={(myContext?.state.mode === "dark" ? "bg-black " : "bg-[#e1e1e1] ") + "md:hidden absolute top-20 p-4 shadow-lg flex flex-col space-y-2 z-50 w-full"}>

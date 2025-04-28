@@ -28,7 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistMono.className} bg-[#222831] text-white text-[calc(3px+1vw)]`} /* Julian Lim Jun Ren: customised default font and background color */
+        className={`${geistMono.className}`} /* 
+                                              Julian Lim Jun Ren: customised default font and background color 
+                                              Steven Phung: Removed line because of hydration
+                                            */
       >
         <ThemeProvider> {/* Steven Phung: Nested Header, children(pages), and Footer for full access to the provider */}
           <Header />
