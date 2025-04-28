@@ -1,5 +1,6 @@
 
-// Written by Julian
+// Written by Julian Lim Jun Ren
+//Album type is used for retrieval of album data by genre
 export type Album = {
     id: number;
     title: string;
@@ -13,7 +14,7 @@ export interface AlbumProps {
     album: Album;
 }
 
-
+//AlbumInfo type is used for retrieval of album data by id, the response format is different from Album
 type Track = {
     duration: string;
     position: string;

@@ -1,15 +1,14 @@
 //Worked on by Abdulrhman Alharbi
 //Styling done by Julian Lim Jun Ren and Abdulrhman Alharbi 
+/* 
+    This component each represents the display for an album in the list of albums generated. 
+    The styling is done using Tailwind CSS classes. 
+    Julian is responsible for the spacing, sizing, and organisational styling.
+    Abdulrhman is responsible for the color choices, hover effects, and general interactivity.
+    Abdulrhman is also responsible for the code logic.
+*/
 import {AlbumProps} from "@/lib/types";
 import Link from "next/link";
-
-const albumContainerStyling = "flex flex-col gap-2 max-w-3xl min-w-[30vw] w-full p-4 rounded-2xl shadow-lg bg-[#dee2e6] hover:bg-[#e9ecef] hover:shadow-[0px_0px_15px_2px_#e9ecef4d] transition "
-const subtitleStyling = "text-sm text-gray-500 ml-10"
-const albumNameStyling = "text-lg font-semibold text-black"
-const artistNameStyling = "text-sm text-gray-500"
-const albumCoverStyling = "w-20 h-20 rounded shadow-lg"
-const albumImgTitleContainerStyling = "flex items-center gap-4"
-const albumTitleContainerStyling = "flex flex-col gap-4"
 
 const altAlbumContainerStyling = "flex flex-col w-[40vw] sm:w-[20vw] p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-[#dee2e6] hover:shadow-[0px_0px_15px_2px_#dee2e6] hover:scale-102 transition "
 const altAlbumCoverStyling = "w-full aspect-square rounded drop-shadow-lg overflow-hidden object-cover"

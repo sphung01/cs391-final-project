@@ -1,4 +1,8 @@
-//done by Julian Lim Jun Ren
+//Written by Julian Lim Jun Ren
+/* 
+    This component is a wrapper for the dropdown component made specifically for the home page.
+    I separated it from the user input component for code readability regarding the arrays of options.
+*/
 "use client"
 import DropdownComponent from "./DropdownComponent";
 const genres = [

@@ -1,6 +1,5 @@
-/* done by Julian Lim Jun Ren
-    This is where the form is created. 
-    This form will take in whatever input the client provides.
+/* Written by Julian Lim Jun Ren
+    This form takes in a genre and number of results that the client provides.
     The server will retrieve and fetch that info and respond back to the client.
     In which case, should redirect the user to a different page depending on the genre.
 */
@@ -37,7 +36,7 @@ export default function UserInput() {
     };
     
     return(
-        <div className="text-white"> {/* remove the classname if you don't want this behavior */}
+        <div className="text-white"> 
             <form onSubmit={handleSubmit} className={inputFormStyling}>
                 <div className={titleDivStyling}>
                     <h1 className={titleStyling}>Albums Generator</h1>
@@ -47,7 +46,7 @@ export default function UserInput() {
                     <DropdownList genre={genre} setGenre={setGenre} numResults={numResults} setNumResults={setNumResults} />
                     <SubmitButton loading={loading}/>
                 </div>
-                {error && <p className="text-red-500">{error}</p>}
+                {error ? <p className="text-red-500">{error}</p> : null}
             </form>
         </div>
     )
