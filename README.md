@@ -49,7 +49,6 @@ Welli:
 - Made the title clickable to send you to homepage 4/28/2025
 
 
-
 ## Components that should be filled out. You can remove once it is done.
 
 App Directory:
