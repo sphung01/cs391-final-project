@@ -45,11 +45,12 @@ export default function Header() {
         setMenuOpen(!menuOpen);
     }
 
-
     // Return the header with title, home link, and about link
     return (
         <header className={(myContext?.state.mode === "dark" ? "bg-black " : "bg-[#f0f0f0] ") + headerStyling}>
-            <h2 className={titleStyling}>AlbumDiscovery</h2>
+            <Link href="/" className={titleStyling}>
+                AlbumDiscovery
+            </Link>
             {/* Created a button here to change the mode */}
 
             {/*right*/}
@@ -86,8 +87,6 @@ export default function Header() {
                     </button>
                 </nav>
             )}
-
-
         </header>
     );
 }
