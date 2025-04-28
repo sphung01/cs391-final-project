@@ -11,7 +11,10 @@ if (!process.env.DISCOGS_API_KEY) { //check if the discogs api key is provided
 const DISCOGS_API_KEY: string = process.env.DISCOGS_API_KEY;
 const DISCOGS_API_URL: string = 'https://api.discogs.com';
 
-/*constructing a randomised selection of songs from the full fetched array of songs produces better results than query randomising*/
+/*
+    constructing a randomised selection of songs from the full fetched array of songs produces better results than query randomising.
+    this is done so by randomly selecting distinct songs from the full array of songs until the number of songs requested is reached.
+*/
 function pickRandomAlbums(results: Album[], numResults: number) {
     const count: number = numResults;
     const selectedAlbums: Album[] = [];

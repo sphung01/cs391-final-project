@@ -10,14 +10,13 @@ import DropdownList from "./DropdownList";
 import { useRouter } from "next/navigation";
 
 export default function UserInput() {
-    /*styling*/
     const inputFormStyling = "flex flex-col items-center justify-center w-[80vw] min-h-[60vh] sm:w-[50vw] sm:p-[4vw] sm:min-h-[30vw] my-[20vw] sm:my-0 bg-green-500 rounded-3xl drop-shadow-lg";
     const titleStyling = "text-xl sm:text-[calc(3px+1.8vw)] font-semibold";
     const subtitleStyling = "text-lg sm:text-[calc(3px+1.2vw)] font-semibold"; 
     const titleDivStyling = "text-center my-[1vh]"
 
     const [genre, setGenre] = useState<string>("");
-    const [numResults, setNumResults] = useState<string>("10");
+    const [numResults, setNumResults] = useState<string>("10"); // default to 10 results
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
@@ -25,14 +24,14 @@ export default function UserInput() {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         setError(null); // clear previous error
         e.preventDefault();
-        if (!genre || !numResults) {
+        if (!genre || !numResults) { // check if genre and numResults are selected (even though the fields are required its just in case)
             setError("Please select fields.");
             return;
         }
         setLoading(true); 
-        const encodedGenre = encodeURIComponent(genre);
+        const encodedGenre = encodeURIComponent(genre); // encode the genre to be URL safe because of fields like "Funk / Soul"
         // redirect to page of albums with the selected genre
-        router.push(`/albums/${encodedGenre}?numResults=${numResults}`);
+        router.push(`/albums/${encodedGenre}?numResults=${numResults}`); //using ?numResults so searchParams can be used for numResults along with the genre params
     };
     
     return(
