@@ -33,13 +33,16 @@ Julian:
 - Revamped styling of album list to be in card form and more user friendly for scrolling 4/25/2025
 
 Abdulrhman:
-- Created AlbumList.tsx file 4/23/2025
+- Completed AlbumList.tsx file 4/23/2025
 - Completed the AlbumComponent.tsx 4/24/2025
 - Completed the /album/[genre] routing 4/24/2025
-- Added history feature and page 4/24/2025
-- Added storing history in localStorage 4/24/2025
+- Added history feature and completed general function of /history page 4/24/2025
+- Added storing history in localStorage (adding entries to the history key and retrieving them) 4/24/2025
 - Revamped the styling of the Header 4/25/2025
-- Made the site optimal for both mobile and web users 4/25/2025
+- Made dark/light theme apply to the header and footer 4/25/2025
+- Made the color of the link component conditionally change based on the current page 4/25/2025
+- Made the site optimal for both mobile and web users, added a mobile navigation menu to the header 4/25/2025
+
 
 Welli:
 - Completed the AlbumDetailsDisplay.tsx 4/28/2025
