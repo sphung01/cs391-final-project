@@ -9,6 +9,7 @@
 */
 import {AlbumProps} from "@/lib/types";
 import Link from "next/link";
+import Image from "next/image";
 
 const altAlbumContainerStyling = "flex flex-col w-[40vw] sm:w-[20vw] p-4 rounded-2xl shadow-lg bg-[#e9ecef] hover:bg-[#dee2e6] hover:shadow-[0px_0px_15px_2px_#dee2e6] hover:scale-102 transition "
 const altAlbumCoverStyling = "w-full aspect-square rounded drop-shadow-lg overflow-hidden object-cover"
@@ -43,7 +44,7 @@ export default function AlbumComponent({ album }: AlbumProps) {
             <div
                 className={altAlbumImgTitleContainerStyling}
             >
-                <img src={album.cover_image} alt={`cover of ${album.title}`} className={altAlbumCoverStyling} />
+                <Image src={album.cover_image} alt={`cover of ${album.title}`} className={altAlbumCoverStyling} width={100} height={100}/>
                 <div className={altAlbumTitleContainerStyling}>
                     <h2 className={altAlbumNameStyling}>{albumname}</h2>
                     <p className={altArtistNameStyling}>{artist}</p>

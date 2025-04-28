@@ -1,5 +1,6 @@
 //made by Welli
 import { AlbumInfo } from "@/lib/types"
+import Image from "next/image";
 
 export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefined }) {
     if (!props.album) {
@@ -104,10 +105,11 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
             </h1>
 
             <div className="text-center mb-6">
-                <img
+                <Image
                     src={props.album.thumb}
                     alt={`${props.album.title} album cover`}
                     className="w-64 h-64 object-cover shadow-md rounded-md mx-auto block"
+                    width={100} height={100}
                 />
             </div>
 

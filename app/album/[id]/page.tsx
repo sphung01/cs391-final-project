@@ -43,7 +43,7 @@ export default function AlbumPage() {
                 setError(e.message);
                 setLoading(false); 
             });
-    }, []);
+    }, [id]);
 
 
 

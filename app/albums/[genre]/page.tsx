@@ -56,7 +56,7 @@ export default function PlaylistPage() {
                 setError(e.message);
                 setLoading(false); 
             });
-    }, [genre]);
+    }, [numResults, genre]);
 
     
 

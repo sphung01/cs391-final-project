@@ -15,6 +15,8 @@ Steven:
 - Finished implementing light and dark mode 4/24/2025
 - Helped fixed formatting issue in Header 4/25/2025
 - Added many comments with logic and reasoning 4/28/2025
+- Got rid of warnings when building the website 4/28/2025
+- Replaced img with Image for optimization 4/28/2025
 
 Julian:
 - Created the UserInput.tsx file 4/23/2025
