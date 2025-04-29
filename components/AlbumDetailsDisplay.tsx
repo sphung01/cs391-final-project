@@ -98,6 +98,8 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
 
     const { average: AvgLen, total: TotLen } = calculateTrackLengths()
 
+    console.log(props.album);
+
     return (
         <div className="w-full max-w-3xl p-4 flex flex-col items-center mx-auto">
             <h1 className="text-2xl font-bold text-center text-white mb-4">
@@ -105,11 +107,12 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
             </h1>
 
             <div className="text-center mb-6">
+                {/* using images primary, and falling back to thumb */}
                 <Image
-                    src={props.album.thumb}
+                    src={props.album.images.length > 0 ? props.album.images[0].uri : props.album.thumb}
                     alt={`${props.album.title} album cover`}
                     className="w-64 h-64 object-cover shadow-md rounded-md mx-auto block"
-                    width={100} height={100}
+                    width={256} height={256}
                 />
             </div>
 

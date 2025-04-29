@@ -28,6 +28,7 @@ type Artist = {
 }
 export type AlbumInfo = {
     title: string;
+    images: {uri:string}[];
     thumb: string;
     tracklist: Track[];
     artists: Artist[];

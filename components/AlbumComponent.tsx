@@ -44,7 +44,7 @@ export default function AlbumComponent({ album }: AlbumProps) {
             <div
                 className={altAlbumImgTitleContainerStyling}
             >
-                <Image src={album.cover_image} alt={`cover of ${album.title}`} className={altAlbumCoverStyling} width={100} height={100}/>
+                <Image src={album.cover_image} alt={`cover of ${album.title}`} className={altAlbumCoverStyling} width={256} height={256}/>
                 <div className={altAlbumTitleContainerStyling}>
                     <h2 className={altAlbumNameStyling}>{albumname}</h2>
                     <p className={altArtistNameStyling}>{artist}</p>
