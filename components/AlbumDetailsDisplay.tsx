@@ -12,12 +12,12 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
     }
 
     //styling to eliminate redundancy
-    const trackList = "w-full border-t border-[#e9ecef]"; // changed to match color scheme
-    const trackItem = "w-full py-2 flex justify-between border-b border-[#e9ecef]";
+    const trackList = "w-full border-t"; // changed to match color scheme
+    const trackItem = "w-full py-2 flex justify-between border-b";
     const trackLeft = "flex items-center";
-    const trackPosition = "mr-2 text-gray-600";
-    const trackTitle = "font-medium text-white";
-    const trackDuration = "text-gray-600";
+    const trackPosition = "mr-2";
+    const trackTitle = "font-medium";
+    const trackDuration = "";
 
 
     //for calculating the average lenght of tracks and total length of tracks in an album
@@ -100,7 +100,7 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
     ;
     return (
         <div className="w-full max-w-3xl p-4 flex flex-col items-center mx-auto">
-            <h1 className="text-2xl font-bold text-center text-white mb-4">
+            <h1 className="text-2xl font-bold text-center mb-4">
                 {props.album.title}
             </h1>
 
@@ -115,20 +115,20 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
             </div>
 
             <div className="w-full flex flex-col items-center mb-6">
-                <h2 className="text-xl font-semibold text-center text-white mb-2">Artists</h2>
+                <h2 className="text-xl font-semibold text-center mb-2">Artists</h2>
                 <ul className="w-full flex flex-col items-center gap-1">
                     {props.album.artists.map((artist, index) => (
                         <li key={index} className="flex justify-center items-center text-center">
-                            <span className="font-medium text-white">{artist.name}</span>
+                            <span className="font-medium">{artist.name}</span>
                         </li>
                     ))}
                 </ul>
             </div>
 
             <div className="w-full flex flex-col items-center">
-                <h2 className="text-xl font-semibold text-center text-white mb-2">Tracklist</h2>
+                <h2 className="text-xl font-semibold text-center mb-2">Tracklist</h2>
 
-                <div className="flex justify-center gap-5 text-gray-600 text-center italic mb-4">
+                <div className="flex justify-center gap-5 text-center italic mb-4">
                     <span>
                         Average Track: <span className="font-medium">{AvgLen}</span>
                     </span>

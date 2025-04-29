@@ -17,9 +17,11 @@
 .light {
     background-color: white;
     color: black;
+    border-color: black;
 }
 
 .dark {
     background-color: #141414;
     color: white;
+    border-color: #e9ecef;
 }
