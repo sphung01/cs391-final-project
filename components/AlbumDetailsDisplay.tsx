@@ -97,9 +97,7 @@ export default function AlbumDetailsDisplay(props: { album: AlbumInfo | undefine
     }
 
     const { average: AvgLen, total: TotLen } = calculateTrackLengths()
-
-    console.log(props.album);
-
+    ;
     return (
         <div className="w-full max-w-3xl p-4 flex flex-col items-center mx-auto">
             <h1 className="text-2xl font-bold text-center text-white mb-4">
